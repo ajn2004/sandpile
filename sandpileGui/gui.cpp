@@ -9,7 +9,7 @@
 
 int main() {
 
-  int factor = 5;
+  int factor = 40;
   SandpileModel model(1080/factor,1920/factor);
   model.iterate(1);
   while (true){
@@ -38,9 +38,11 @@ int main() {
 		  scaled_grid,
 		  0, 255,
 		  cv::NORM_MINMAX, CV_8UC1);
-    cv::Mat colored_image
-    cv::applyColorMap(scaled_grid, colored_image, cv::COLORMAP_JET);
-    cv::imshow("Visualization", colored_image);
+    cv::Mat colored_image;
+    cv::applyColorMap(scaled_grid,
+        		      colored_image,
+		      cv::COLORMAP_JET);
+    cv::imshow("// ", colored_image);
     cv::waitKey(1);
     
     model.iterate(1);

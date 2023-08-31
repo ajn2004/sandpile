@@ -27,13 +27,13 @@ private:
         grid[x][y] -= 4;
 
         // Top
-        if(x - 1 >= 0) grid[x - 1][y]++;
+        if(x - 1 >= 0) grid[x - 1][y] += 1;
         // Bottom
-        if(x + 1 < N) grid[x + 1][y]++;
+        if(x + 1 < N) grid[x + 1][y] += 1;
         // Left
-        if(y - 1 >= 0) grid[x][y - 1]++;
+        if(y - 1 >= 0) grid[x][y - 1] += 1;
         // Right
-        if(y + 1 < M) grid[x][y + 1]++;
+        if(y + 1 < M) grid[x][y + 1] +=1;
     }
 
 public:
