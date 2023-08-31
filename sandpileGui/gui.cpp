@@ -5,6 +5,7 @@
 #include <opencv2/opencv.hpp>
 #include <thread>
 #include <chrono>
+#include "gif.h"
 
 
 int main() {
@@ -12,14 +13,21 @@ int main() {
   int factor = 4;
   int width = 680;
   int height = 240;
+  int preiters = 100000;
   // import 3 models for RGB generation
   SandpileModel model0(height/factor,width/factor);
   SandpileModel model1(height/factor,width/factor);
   SandpileModel model2(height/factor,width/factor);
-  model0.iterate(1);
-  model1.iterate(1);
-  model2.iterate(1);
-  while (true){
+  model0.iterate(preiters);
+  model1.iterate(preiters);
+  model2.iterate(preiters);
+  int frames = 1;
+  int maxFrames = 600;
+  float duration = 1;
+  GifWriter gif;
+  
+  GifBegin(&gif, "pink_noise.gif", width, height, duration);
+  while (frames <= maxFrames){
     // Sample 2D vector
     std::vector<std::vector<int>> data0 = model0.getGrid();
     std::vector<std::vector<int>> data1 = model1.getGrid();
@@ -57,10 +65,16 @@ int main() {
     // 		      cv::COLORMAP_JET);
     cv::imshow("// ", scaled_grid);
     cv::waitKey(1);
+    cv::Mat imageFrame;
+    cv::cvtColor(scaled_grid, imageFrame, cv::COLOR_BGR2BGRA);
+
+    GifWriteFrame(&gif, imageFrame.data, width, height, duration);
     
     model0.iterate(1);
     model1.iterate(1);
     model2.iterate(2);
+    frames++;
   }
+  GifEnd(&gif);
   return 0;
 }

@@ -49,7 +49,7 @@ public:
         }
     }
 
-    const std::vector<std::vector<int>>& getGrid() const{ return grid;}
+    std::vector<std::vector<int>>& getGrid() { return grid;}
   
     void iterate(int num_iterations) {
         for(int iter = 0; iter < num_iterations; iter++) {
