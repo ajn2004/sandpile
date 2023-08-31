@@ -1,0 +1,10 @@
+Pretty basic sandpile simulation / c++ experiment for personal
+exploration.
+
+The simulation is written in sand.cpp and is 'done' in a
+sense. Uncommenting out key lines will allow this to be built into a
+python file using build.sh in the main folder.
+
+The simulation can be visualized with simulationGui/build.sh which will build the simulationGui.cpp code and the simulation, to give a visualization of the computation.
+
+In main.cpp
