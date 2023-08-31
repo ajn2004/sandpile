@@ -13,3 +13,7 @@ Make sure opencv is installed on your system
 If you want to make this a python function use
 ```pip install pybind11```
 first
+
+Let me know if you have any issues and I'll be happy to get back to you.
+Cheers,
+Andrew
