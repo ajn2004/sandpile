@@ -38,7 +38,9 @@ int main() {
 		  scaled_grid,
 		  0, 255,
 		  cv::NORM_MINMAX, CV_8UC1);
-    cv::imshow("Grayscale Image", scaled_grid);
+    cv::Mat colored_image
+    cv::applyColorMap(scaled_grid, colored_image, cv::COLORMAP_JET);
+    cv::imshow("Visualization", colored_image);
     cv::waitKey(1);
     
     model.iterate(1);
