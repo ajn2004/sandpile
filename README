@@ -7,4 +7,9 @@ python file using build.sh in the main folder.
 
 The simulation can be visualized with simulationGui/build.sh which will build the simulationGui.cpp code and the simulation, to give a visualization of the computation.
 
-In main.cpp
+In sandpileGui/gui.cpp you can adjust the scaling factor to explore computational efficiency.
+
+Make sure opencv is installed on your system
+If you want to make this a python function use
+```pip install pybind11```
+first
